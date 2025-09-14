@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 import { Element, scroller, scrollSpy } from "react-scroll";
 import Navbar from "./components/nav/Navbar";
 import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
 
 const Sections = ({ children }: { children: React.ReactNode }) => (
   <Box
@@ -30,7 +31,7 @@ export default function App() {
   const sections = useMemo(
     () => [
       { id: "home", node: <HomePage /> },
-      { id: "about", node: <HomePage /> },
+      { id: "about", node: <AboutPage /> },
       { id: "contact", node: <HomePage /> },
     ],
     []
