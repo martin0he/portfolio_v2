@@ -8,6 +8,7 @@ import {
 import PageTab from "./PageTab";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Theme } from "../../theme";
+import Topbar from "./Topbar";
 
 interface NavbarProps {
   items: { id: string; label: string }[];
@@ -47,6 +48,7 @@ const Accordions = ({ items }: NavbarProps) => {
           fontSize={{ lg: 20, md: 18, sm: 16, xs: 15 }}
           color={Theme.colors.darkMode.WHITE}
           padding={"0px"}
+          paddingLeft={"5px"}
           margin={"0px"}
           fontWeight={600}
         >
@@ -112,6 +114,7 @@ const Navbar = ({ items }: NavbarProps) => {
         backgroundColor: Theme.colors.darkMode.TASKBAR_BG,
       }}
     >
+      <Topbar onIconClick={() => {}} />
       <Accordions items={items} />
     </Box>
   );
