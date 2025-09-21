@@ -10,7 +10,7 @@ const PageLayout = (props: PageLayoutProps) => {
   return (
     <Box
       width={"100%"}
-      height={"100%"}
+      height={"100vh"}
       paddingX={8}
       display={"flex"}
       flexDirection={"column"}
@@ -28,7 +28,7 @@ const PageLayout = (props: PageLayoutProps) => {
         {props.pageHeader}
       </Typography>
       <Box
-        marginTop={1}
+        marginTop={3}
         width={"100%"}
         display={"flex"}
         flexDirection={"column"}

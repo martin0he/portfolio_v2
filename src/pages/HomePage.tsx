@@ -2,6 +2,7 @@ import { Typography } from "@mui/material";
 import PageLayout from "../components/PageLayout";
 import Typewriter from "typewriter-effect";
 import { Theme } from "../theme";
+import AsciiHead from "../components/AsciiHead";
 
 const HomePage = () => {
   return (
@@ -35,6 +36,7 @@ const HomePage = () => {
           />
         </span>
       </Typography>
+      <AsciiHead />
     </PageLayout>
   );
 };

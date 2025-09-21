@@ -1,4 +1,5 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
+import { Theme } from "../theme";
 
 interface AboutMeSectionProps {
   variant?: "1" | "2";
@@ -17,13 +18,13 @@ const AboutMeSection = ({
       flexDirection={variant === "1" ? "column" : "column-reverse"}
       alignItems="center"
       justifyContent="center"
-      width="30%"
+      width="27%"
       height="100%"
     >
       <Box
         sx={{
-          flex: "0 0 35%",
-          maxHeight: "35%",
+          flex: `0 0 ${variant === "2" ? "60%" : "30%"}`,
+          maxHeight: variant === "2" ? "60%" : "30%",
           width: "100%",
           display: "flex",
         }}
@@ -51,7 +52,13 @@ const AboutMeSection = ({
           mb: variant === "2" ? 2 : 0,
         }}
       >
-        {children}
+        <Typography
+          fontFamily={"Afacad, sans-serif"}
+          fontSize={18}
+          color={Theme.colors.darkMode.WHITE}
+        >
+          {children}
+        </Typography>
       </Box>
     </Box>
   );
