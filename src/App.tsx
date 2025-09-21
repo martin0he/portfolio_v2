@@ -4,6 +4,7 @@ import { Element, scroller, scrollSpy } from "react-scroll";
 import Navbar from "./components/nav/Navbar";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
+import ExperiencePage from "./pages/ExperiencePage";
 
 const Sections = ({ children }: { children: React.ReactNode }) => (
   <Box
@@ -32,7 +33,7 @@ export default function App() {
     () => [
       { id: "home", node: <HomePage /> },
       { id: "about", node: <AboutPage /> },
-      { id: "contact", node: <HomePage /> },
+      { id: "experience", node: <ExperiencePage /> },
     ],
     []
   );
@@ -57,7 +58,12 @@ export default function App() {
     <Box display="flex" flexDirection={{ xs: "column", md: "row" }}>
       <Sections>
         {sections.map((s) => (
-          <Element name={s.id} id={s.id} key={s.id}>
+          <Element
+            style={{ marginBottom: "20px" }}
+            name={s.id}
+            id={s.id}
+            key={s.id}
+          >
             {s.node}
           </Element>
         ))}
