@@ -23,12 +23,16 @@ function Model({ url }: ModelProps) {
 
 export default function AsciiModelViewer({ modelUrl }: { modelUrl: string }) {
   return (
-    <div style={{ width: "100vw", height: "80vh" }}>
-      <Canvas
-        // 1. ZOOM: Lower FOV (15-20) acts like a powerful zoom lens.
-        // Move position closer (from 5 to 3) to physically bring the camera in.
-        camera={{ position: [0, 0.5, 3], fov: 20 }}
-      >
+    <div
+      style={{
+        width: "100vw",
+        height: "80vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Canvas camera={{ position: [-1, 0.5, 3], fov: 20 }}>
         <color attach="background" args={["transparent"]} />
 
         <Suspense fallback={null}>
@@ -44,11 +48,10 @@ export default function AsciiModelViewer({ modelUrl }: { modelUrl: string }) {
           invert={false}
           resolution={0.35}
         />
-
-        {/* 3. Disable pan/zoom if you want a fixed "Portrait" view */}
         <OrbitControls
-          makeDefault
           enablePan={false}
+          enableZoom={false}
+          enableDamping={false}
           autoRotate
           autoRotateSpeed={8}
         />

@@ -1,0 +1,78 @@
+/* Container Styling */
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: #3f3d3d;
+}
+
+/* Layout for the 3 Columns */
+.columns-wrapper {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.column {
+  flex: 1;
+  line-height: 1.2;
+  font-size: 1.2rem;
+  padding: 25px;
+  opacity: 0; /* Hidden before animation */
+}
+
+/* Animation Definitions */
+.fade-up {
+  animation: slideUp 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.4s;
+}
+
+.fade-down {
+  animation: slideDown 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.4s; /* Slight stagger for elegance */
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+  .columns-wrapper {
+    flex-direction: column;
+  }
+}
+
+/* Pics */
+.about-img {
+  width: 100%;
+  opacity: 70%;
+  border: 2px dashed #8a393e;
+  border-radius: 8px;
+}

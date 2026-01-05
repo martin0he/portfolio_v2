@@ -50,7 +50,7 @@ button {
 .navbar {
   position: fixed;
   display: flex;
-  gap: 16px;
+  gap: 8px;
   z-index: 100;
   background-color: var(--bg-color);
   transition: all 0.3s ease;
@@ -118,13 +118,18 @@ button {
 .social-links-home .github-button:hover svg path {
   fill: #133f3e;
 }
+.social-links-home .resume-button:hover svg path {
+  fill: #683d10;
+}
 
 .social-links-home .github-button:hover,
+.social-links-home .resume-button:hover,
 .social-links-home .linkedin-button:hover {
   transform: scale(1.1);
 }
 
 .social-links-home .github-button,
+.social-links-home .resume-button,
 .social-links-home .linkedin-button {
   transition: all 0.3s ease;
 }
@@ -135,8 +140,8 @@ button {
     top: 0;
     right: 0;
     margin-right: 10px;
-    width: 7vw;
-    min-width: 90px;
+    width: 4vw;
+    min-width: 70px;
     height: 100vh;
     flex-direction: column;
     justify-content: center;
@@ -145,7 +150,8 @@ button {
   .social-links-home {
     position: fixed;
     bottom: 10px;
-    left: 20px;
+    right: 20px;
+    z-index: 101;
   }
 }
 
