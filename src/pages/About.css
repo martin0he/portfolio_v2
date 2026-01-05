@@ -1,15 +1,13 @@
-/* Container Styling */
-.about-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  color: #3f3d3d;
+.intro {
+  line-height: 1.2;
+  font-size: 1.2rem;
+  opacity: 0;
 }
 
 /* Layout for the 3 Columns */
 .columns-wrapper {
   display: flex;
-  gap: 8px;
+  gap: 42px;
   justify-content: center;
   align-items: flex-start;
 }
@@ -18,19 +16,23 @@
   flex: 1;
   line-height: 1.2;
   font-size: 1.2rem;
-  padding: 25px;
   opacity: 0; /* Hidden before animation */
 }
 
 /* Animation Definitions */
 .fade-up {
   animation: slideUp 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: 0.4s;
+  animation-delay: 1s;
 }
 
 .fade-down {
   animation: slideDown 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: 0.4s; /* Slight stagger for elegance */
+  animation-delay: 1.6s;
+}
+
+.intro-anim {
+  animation: slideUp 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.4s;
 }
 
 /* Keyframes */
@@ -72,7 +74,12 @@
 /* Pics */
 .about-img {
   width: 100%;
-  opacity: 70%;
+  opacity: 0.7;
   border: 2px dashed #8a393e;
   border-radius: 8px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.about-img:hover {
+  opacity: 1;
 }

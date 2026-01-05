@@ -47,6 +47,18 @@ button {
   cursor: pointer;
 }
 
+
+.page-container {
+  max-width: 80%;
+  margin: 16px 18px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-self: flex-start;
+  color: #3f3d3d;
+}
+
 .navbar {
   position: fixed;
   display: flex;
@@ -104,54 +116,18 @@ button {
   transition: opacity 0.4s ease;
 }
 
-/* 4. Social Links */
-.social-links-home {
-  display: flex;
-  gap: 16px;
-  height: 40px;
-  align-items: center;
-}
-
-.social-links-home .linkedin-button:hover svg path {
-  fill: #0b183d;
-}
-.social-links-home .github-button:hover svg path {
-  fill: #133f3e;
-}
-.social-links-home .resume-button:hover svg path {
-  fill: #683d10;
-}
-
-.social-links-home .github-button:hover,
-.social-links-home .resume-button:hover,
-.social-links-home .linkedin-button:hover {
-  transform: scale(1.1);
-}
-
-.social-links-home .github-button,
-.social-links-home .resume-button,
-.social-links-home .linkedin-button {
-  transition: all 0.3s ease;
-}
-
 /* Desktop Layout */
 @media (min-width: 769px) {
   .navbar {
     top: 0;
     right: 0;
-    margin-right: 10px;
+
+    padding: 0 20px;
     width: 4vw;
     min-width: 70px;
     height: 100vh;
     flex-direction: column;
     justify-content: center;
-  }
-
-  .social-links-home {
-    position: fixed;
-    bottom: 10px;
-    right: 20px;
-    z-index: 101;
   }
 }
 
@@ -170,10 +146,6 @@ button {
 
   .navigation-button {
     max-width: 45px;
-  }
-
-  .social-links-home {
-    display: none;
   }
 
   #root {

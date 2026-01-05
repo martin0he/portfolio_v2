@@ -1,0 +1,111 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 95vh;
+  justify-content: flex-end;
+  align-items: flex-start;
+  align-self: flex-start;
+  row-gap: 20px;
+}
+
+/* Base size for Large Desktop (Default) */
+.home-container h1 {
+  /* clamp(min, preferred, max) - smoothly scales between 60px and 100px */
+  font-size: clamp(60px, 8vw, 100px);
+  margin: 0 16px;
+  line-height: 1;
+}
+
+/* Medium Desktop / Tablet Landscape */
+@media (max-width: 1200px) {
+  .home-container h1 {
+    font-size: clamp(50px, 7vw, 80px);
+  }
+}
+
+/* Tablet Portrait */
+@media (max-width: 992px) {
+  .home-container h1 {
+    font-size: clamp(40px, 10vw, 65px);
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+  .home-container h1 {
+    font-size: 38px; /* Fixed small size for readability on tiny screens */
+    margin: 0 12px;
+  }
+}
+
+.model-container {
+  width: 40vw;
+  height: 75%;
+}
+
+@media (max-width: 1150px) {
+  .model-container {
+    width: 55vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .model-container {
+    width: 100vw;
+  }
+}
+
+.bottom-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.social-links-home {
+  display: flex;
+  gap: 16px;
+  height: 40px;
+  z-index: 101;
+  align-items: center;
+}
+
+.social-links-home .linkedin-button:hover svg path {
+  fill: #0b183d;
+}
+.social-links-home .github-button:hover svg path {
+  fill: #133f3e;
+}
+.social-links-home .resume-button:hover svg path {
+  fill: #683d10;
+}
+
+.social-links-home .github-button:hover,
+.social-links-home .resume-button:hover,
+.social-links-home .linkedin-button:hover {
+  transform: scale(1.1);
+}
+
+.social-links-home .github-button,
+.social-links-home .resume-button,
+.social-links-home .linkedin-button {
+  transition: all 0.3s ease;
+}
+
+/* Mobile Layout */
+@media (max-width: 768px) {
+  .social-links-home {
+    display: none;
+  }
+
+  .home-container {
+    flex-direction: column-reverse;
+  }
+
+  .bottom-bar {
+    justify-content: center;
+    padding-top: 20px;
+  }
+}

@@ -23,15 +23,7 @@ function Model({ url }: ModelProps) {
 
 export default function AsciiModelViewer({ modelUrl }: { modelUrl: string }) {
   return (
-    <div
-      style={{
-        width: "100vw",
-        height: "80vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <div className="model-container">
       <Canvas camera={{ position: [-1, 0.5, 3], fov: 20 }}>
         <color attach="background" args={["transparent"]} />
 
@@ -59,3 +51,5 @@ export default function AsciiModelViewer({ modelUrl }: { modelUrl: string }) {
     </div>
   );
 }
+
+useGLTF.preload("/martin_3d_model.glb");
