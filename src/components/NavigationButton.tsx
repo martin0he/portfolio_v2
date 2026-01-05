@@ -11,10 +11,12 @@ const NavigationButton = ({ to, title, icon }: NavigationButtonProps) => {
   return (
     <NavLink
       to={to}
-      className={({ isActive }) => `folder-button ${isActive ? "active" : ""}`}
+      className={({ isActive }) =>
+        `navigation-button ${isActive ? "active" : ""}`
+      }
     >
       <div className="icon-wrapper">{icon}</div>
-      <span className="folder-title">{title}</span>
+      <span className="navigation-title">{title}</span>
     </NavLink>
   );
 };

@@ -4,8 +4,8 @@ const LinkedInIcon = () => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 32 32"
       id="Logo-Linkedin--Streamline-Pixel"
-      width={48}
-      height={48}
+      width={36}
+      height={36}
     >
       <g>
         <path

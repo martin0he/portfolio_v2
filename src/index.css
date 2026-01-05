@@ -1,132 +1,176 @@
 :root {
+  --primary-color: #8a393e;
+  --active-color: #461a1d;
+  --bg-color: #dfceaf;
+
   font-family: "Prata", serif;
   font-weight: 400;
-  font-style: normal;
-
   color-scheme: light dark;
-  color: #8a393e;
-  background-color: #dfceaf;
+  color: var(--primary-color);
+  background-color: var(--bg-color);
 
-  font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#root {
-  width: 100vw;
-  min-height: 100vh;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
 body {
   margin: 0;
-  display: flex;
-  height: 100%;
-  min-width: 320px;
   min-height: 100vh;
-  width: 100vw;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: clamp(2rem, 8vw, 3.2rem); /* Scales with screen size */
   line-height: 1.1;
+  margin: 0.5em 0;
 }
 
 h2 {
-  font-size: 2.6em;
+  font-size: clamp(1.5rem, 6vw, 2.6rem);
   line-height: 1;
 }
 
 button {
-  font-family: "Prata", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.social-links-home {
-  position: absolute;
-  bottom: 12px;
-  left: 28px;
-  display: flex;
-  flex-direction: row;
-  gap: 18px;
+  font-family: inherit;
+  cursor: pointer;
 }
 
 .navbar {
-  width: 130px;
-  margin: 20px 10px;
-  position: absolute;
-  top: 0;
-  right: 0;
+  position: fixed;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   gap: 16px;
-  height: 100vh;
+  z-index: 100;
+  background-color: var(--bg-color);
+  transition: all 0.3s ease;
 }
 
-.folder-button {
+.navigation-button {
   text-decoration: none;
   color: inherit;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   background: transparent;
   border: none;
-  cursor: pointer;
   padding: 10px;
-  width: 100%;
-  outline: none;
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.folder-button.active {
-  color: #461a1d;
+/* Active & Hover States */
+.navigation-button.active {
+  color: var(--active-color);
+  transform: translateY(-2px) scale(0.98);
 }
-
-.folder-button.active .icon-wrapper svg path {
-  fill: #461a1d;
-}
-
-.folder-button.active .folder-title {
-  color: #461a1d;
+.navigation-button.active .navigation-title {
   font-weight: bold;
+}
+.navigation-button:hover {
+  transform: translateY(-5px);
+}
+.navigation-button:hover .icon-wrapper {
+  transform: scale(1.1);
+}
+.navigation-button.active .icon-wrapper svg path {
+  fill: var(--active-color);
 }
 
 .icon-wrapper {
-  width: 80px;
-  height: 60px;
+  min-width: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: transform 0.4s ease;
 }
 
-.folder-title {
+.navigation-title {
   margin-top: 10px;
-  font-size: 1.2rem;
-  color: #8a393e;
+  font-size: 0.8rem;
   text-transform: lowercase;
   letter-spacing: 1px;
   transition: opacity 0.4s ease;
 }
 
-.folder-button:hover {
-  transform: translateY(-5px);
+/* 4. Social Links */
+.social-links-home {
+  display: flex;
+  gap: 16px;
+  height: 40px;
+  align-items: center;
 }
 
-.folder-button:hover .icon-wrapper {
+.social-links-home .linkedin-button:hover svg path {
+  fill: #0b183d;
+}
+.social-links-home .github-button:hover svg path {
+  fill: #133f3e;
+}
+
+.social-links-home .github-button:hover,
+.social-links-home .linkedin-button:hover {
   transform: scale(1.1);
 }
 
-.folder-button:active {
-  transform: translateY(-2px) scale(0.98);
+.social-links-home .github-button,
+.social-links-home .linkedin-button {
+  transition: all 0.3s ease;
+}
+
+/* Desktop Layout */
+@media (min-width: 769px) {
+  .navbar {
+    top: 0;
+    right: 0;
+    margin-right: 10px;
+    width: 7vw;
+    min-width: 90px;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .social-links-home {
+    position: fixed;
+    bottom: 10px;
+    left: 20px;
+  }
+}
+
+/* Mobile Layout */
+@media (max-width: 768px) {
+  .navbar {
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: auto;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 20px;
+    padding-bottom: env(safe-area-inset-bottom); /* iOS support */
+  }
+
+  .navigation-button {
+    max-width: 45px;
+  }
+
+  .social-links-home {
+    display: none;
+  }
+
+  #root {
+    padding-bottom: 90px;
+  }
 }

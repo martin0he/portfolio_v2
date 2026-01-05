@@ -1,4 +1,4 @@
-import NavigationButton from "../FolderButton";
+import NavigationButton from "./NavigationButton";
 import ContactIcon from "../icons/ContactIcon";
 import ExperienceIcon from "../icons/ExperienceIcon";
 import FolderIcon from "../icons/FolderIcon";
