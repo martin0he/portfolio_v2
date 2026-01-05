@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import PageTemplate from "./pages/PageTemplate";
 import About from "./pages/About";
+import Projects from "./pages/Projects";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
         <Route path="/" element={<Home />} />
         {/* Dummy Routes */}
         <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<PageTemplate title="Projects" />} />
+        <Route path="/projects" element={<Projects />} />
         <Route
           path="/experience"
           element={<PageTemplate title="Experience" />}

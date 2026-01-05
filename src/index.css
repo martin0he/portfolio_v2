@@ -47,16 +47,39 @@ button {
   cursor: pointer;
 }
 
+/* Firefox Support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--active-color) var(--bg-color);
+}
+
+/* Chrome, Edge, and Safari Support */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--active-color);
+  border-radius: 10px;
+  border: 2px solid var(--bg-color);
+}
+
 .page-container {
-  max-width: 80%;
+  max-width: 85%;
+  width: 85%;
   margin: 16px 18px;
   display: flex;
-  row-gap: 12px;
+  row-gap: 28px;
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
   align-self: flex-start;
   color: #3f3d3d;
+  padding: 40px 0;
 }
 
 .navbar {

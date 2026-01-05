@@ -1,0 +1,146 @@
+/* 1. Responsive Mosaic Grid */
+.mosaic-grid {
+  display: grid;
+  /* Use a finer 12-column grid for better horizontal control */
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: min-content;
+  gap: 32px;
+  width: 100%;
+  opacity: 0;
+  animation: slideUp 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.4s;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 2. Horizontal Spanning Logic */
+.project-card.large {
+  grid-column: span 8; /* Takes up 2/3 of the row */
+}
+
+.project-card.medium {
+  grid-column: span 6; /* Takes up 1/2 of the row */
+}
+
+.project-card.small {
+  grid-column: span 4; /* Takes up 1/3 of the row */
+}
+
+/* 3. The Card Design */
+.project-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(138, 57, 62, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  height: 100%;
+}
+
+/* 4. Enforcing 16:9 Aspect Ratio */
+.card-image-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #1a1a1a;
+  position: relative;
+}
+
+.card-image-wrapper video {
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s ease;
+}
+
+/* 5. Content Styling */
+.card-content {
+  padding: 24px;
+  background: var(--bg-color);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}
+
+.card-content h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.tech-tag {
+  display: inline-block;
+  white-space: nowrap;
+  font-family: sans-serif; /* Cleaner for small UI tags */
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background: rgba(138, 57, 62, 0.08);
+  color: var(--primary-color);
+  border: 1px solid rgba(138, 57, 62, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* 6. Breakpoints for Responsiveness */
+
+/* Tablet: Adjust spans to keep 2 items per row */
+@media (max-width: 1024px) {
+  .project-card.large,
+  .project-card.medium,
+  .project-card.small {
+    grid-column: span 6;
+  }
+}
+
+/* Mobile: Single column, 100% width */
+@media (max-width: 768px) {
+  .mosaic-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 20px;
+  }
+
+  .project-card.large,
+  .project-card.medium,
+  .project-card.small {
+    grid-column: span 1;
+  }
+
+  .card-content h3 {
+    font-size: 1.5rem;
+  }
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary-color);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.project-card:hover img {
+  transform: scale(1.03);
+}
