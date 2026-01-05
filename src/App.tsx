@@ -1,75 +1,25 @@
-import { useEffect, useMemo } from "react";
-import { Box } from "@mui/material";
-import { Element, scroller, scrollSpy } from "react-scroll";
-import Navbar from "./components/nav/Navbar";
-import HomePage from "./pages/HomePage";
-import AboutPage from "./pages/AboutPage";
-import ExperiencePage from "./pages/ExperiencePage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Navbar from "./components/Navbar";
+import PageTemplate from "./pages/PageTemplate";
 
-const Sections = ({ children }: { children: React.ReactNode }) => (
-  <Box
-    id="sectionsContainer"
-    width={{ xs: "100vw", sm: "100vw", md: "80vw" }}
-    height="100vh"
-    sx={{
-      overflowY: "scroll",
-      overflowX: "hidden",
-      scrollSnapType: "y proximity",
-      scrollBehavior: "smooth",
-
-      scrollbarWidth: "none",
-      "& > *": {
-        minHeight: "100vh",
-        scrollSnapAlign: "start",
-      },
-    }}
-  >
-    {children}
-  </Box>
-);
-
-export default function App() {
-  const sections = useMemo(
-    () => [
-      { id: "home", node: <HomePage /> },
-      { id: "about", node: <AboutPage /> },
-      { id: "experience", node: <ExperiencePage /> },
-    ],
-    []
-  );
-
-  useEffect(() => {
-    scrollSpy.update();
-  }, []);
-
-  useEffect(() => {
-    const hash = window.location.hash.replace("#", "");
-    if (hash) {
-      scroller.scrollTo(hash, {
-        containerId: "sectionsContainer",
-        smooth: true,
-        duration: 200,
-        offset: 0,
-      });
-    }
-  }, []);
-
+function App() {
   return (
-    <Box display="flex" flexDirection={{ xs: "column", md: "row" }}>
-      <Sections>
-        {sections.map((s) => (
-          <Element
-            style={{ marginBottom: "20px" }}
-            name={s.id}
-            id={s.id}
-            key={s.id}
-          >
-            {s.node}
-          </Element>
-        ))}
-      </Sections>
-
-      <Navbar items={sections.map((s) => ({ id: s.id, label: s.id }))} />
-    </Box>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/* Dummy Routes */}
+        <Route path="/about" element={<PageTemplate title="About Me" />} />
+        <Route path="/projects" element={<PageTemplate title="Projects" />} />
+        <Route
+          path="/experience"
+          element={<PageTemplate title="Experience" />}
+        />
+        <Route path="/contact" element={<PageTemplate title="Contact" />} />
+      </Routes>
+      <Navbar />
+    </Router>
   );
 }
+
+export default App;
