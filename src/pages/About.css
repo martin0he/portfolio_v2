@@ -25,17 +25,17 @@
 /* Animation Definitions */
 .fade-up {
   animation: slideUp 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: 1s;
+  animation-delay: 0.6s;
 }
 
 .fade-down {
   animation: slideDown 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: 1.6s;
+  animation-delay: 0.9s;
 }
 
 .intro-anim {
   animation: slideUp 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: 0.4s;
+  animation-delay: 0.3s;
 }
 
 /* Keyframes */
@@ -78,8 +78,8 @@
 .about-img {
   width: 100%;
   opacity: 0.7;
-  border: 2px dashed #8a393e;
-  border-radius: 8px;
+  border: 1px dashed #8a393e;
+  border-radius: 6px;
   transition: opacity 0.3s ease-in-out;
 }
 

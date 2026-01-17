@@ -9,15 +9,16 @@ const Navbar = () => {
     <div className="navbar">
       <NavigationButton to="/about" title="about me" icon={<FolderIcon />} />
       <NavigationButton
-        to="/projects"
-        title="projects"
-        icon={<ProjectsIcon />}
-      />
-      <NavigationButton
         to="/experience"
         title="experience"
         icon={<ExperienceIcon />}
       />
+      <NavigationButton
+        to="/projects"
+        title="projects"
+        icon={<ProjectsIcon />}
+      />
+
       <NavigationButton to="/contact" title="contact" icon={<ContactIcon />} />
     </div>
   );

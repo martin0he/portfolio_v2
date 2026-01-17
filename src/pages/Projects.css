@@ -8,7 +8,7 @@
   width: 100%;
   opacity: 0;
   animation: slideUp 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: 0.4s;
+  animation-delay: 0.8s;
 }
 
 @keyframes slideUp {
@@ -39,7 +39,7 @@
 .project-card {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(138, 57, 62, 0.15);
-  border-radius: 12px;
+  border-radius: 6px;
   overflow: hidden;
   display: flex;
   flex-direction: column;

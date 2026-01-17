@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import PageTemplate from "./pages/PageTemplate";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
+import Experience from "./pages/Experience";
 
 function App() {
   return (
@@ -13,10 +14,7 @@ function App() {
         {/* Dummy Routes */}
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
-        <Route
-          path="/experience"
-          element={<PageTemplate title="Experience" />}
-        />
+        <Route path="/experience" element={<Experience />} />
         <Route path="/contact" element={<PageTemplate title="Contact" />} />
       </Routes>
       <Navbar />

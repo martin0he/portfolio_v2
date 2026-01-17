@@ -1,12 +1,15 @@
 import PageWrapper from "../components/PageWrapper";
+import TechStack from "../components/TechStack";
 import "./Projects.css";
+
+type ProjectSize = "small" | "medium" | "large";
 
 type ProjectProps = {
   title: string;
   description: string;
   image: string;
   tags: string[];
-  size?: "small" | "medium" | "large";
+  size?: ProjectSize;
 };
 
 const ProjectCard = ({
@@ -46,17 +49,9 @@ const projects = [
       "National mobile app for cross-chapter social networking, multitenancy chapter management, finanical dues processing, roster management and all other features available in the Omega predecessor.",
   },
   {
-    title: "Portfolio",
-    tags: ["React", "Three.js", "TypeScript", "CSS"],
-    size: "small",
-    image: "/path-to-gif1.gif",
-    description:
-      "New personal portfolio website to showcase my sparkle and whimsy.",
-  },
-  {
     title: "Kappa Theta Pi Ω App",
     tags: ["TypeScript", "React Native", "Nativewind", "Supabase", "Expo"],
-    size: "medium",
+    size: "small",
     image: "/path-to-gif1.gif",
     description:
       "In-house all-in-one mobile app for recruitment, event management, attendance tracking, social networking, and chapter-wide updates.",
@@ -92,7 +87,7 @@ const projects = [
       "Python",
       "TensorFlow",
     ],
-    size: "small",
+    size: "medium",
     image: "/projects/audio-analytica.webm",
     description:
       "Spotify statistics & neural net analysis website for your top tracks, artists, genres, and audio features.",
@@ -100,7 +95,7 @@ const projects = [
   {
     title: "CollegeRanks",
     tags: ["TypeScript", "React", "MUI", "Chart.js", "Supabase"],
-    size: "large",
+    size: "small",
     image: "/projects/college-ranks.webm",
     description:
       "Global university ranking website with a custom weighted scale, provided metrics, and user-submitted reviews.",
@@ -108,7 +103,7 @@ const projects = [
   {
     title: "theMarketplace",
     tags: ["TypeScript", "React", "NodeJS", "Supabase", "Mapbox API", "MUI"],
-    size: "medium",
+    size: "large",
     image: "/projects/marketplace.webm",
     description:
       "University-based online marketplace to sell and buy used items on campus for all schools worldwide. Uses academic '.edu' email for registration.",
@@ -127,7 +122,11 @@ const ProjectGrid = () => {
   return (
     <div className="mosaic-grid">
       {projects.map((project, index) => (
-        <ProjectCard key={index} {...project} size={project.size as any} />
+        <ProjectCard
+          key={index}
+          {...project}
+          size={project.size as ProjectSize}
+        />
       ))}
     </div>
   );
@@ -136,6 +135,7 @@ const ProjectGrid = () => {
 const Projects = () => {
   return (
     <PageWrapper>
+      <TechStack />
       <ProjectGrid />
     </PageWrapper>
   );
