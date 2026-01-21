@@ -139,12 +139,52 @@ button {
   transition: opacity 0.4s ease;
 }
 
+.social-links-home {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 12px;
+  height: fit-content;
+  z-index: 101;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding-right: 20px;
+  padding-bottom: 14px;
+}
+
+.social-links-home .linkedin-button:hover svg path {
+  fill: #0b183d;
+}
+.social-links-home .github-button:hover svg path {
+  fill: #133f3e;
+}
+.social-links-home .resume-button:hover svg path {
+  fill: #683d10;
+}
+.social-links-home .email-button:hover svg path {
+  fill: rgb(51, 7, 89);
+}
+
+.social-links-home .github-button:hover,
+.social-links-home .resume-button:hover,
+.social-links-home .email-button:hover,
+.social-links-home .linkedin-button:hover {
+  transform: scale(1.1);
+}
+
+.social-links-home .github-button,
+.social-links-home .resume-button,
+.social-links-home .email-button,
+.social-links-home .linkedin-button {
+  transition: all 0.3s ease;
+}
+
 /* Desktop Layout */
 @media (min-width: 769px) {
   .navbar {
     top: 0;
     right: 0;
-
     padding: 0 20px;
     width: 4vw;
     min-width: 70px;
@@ -173,5 +213,16 @@ button {
 
   #root {
     padding-bottom: 90px;
+  }
+
+  .page-container {
+    max-width: 95%;
+    width: 95%;
+    margin: 12px 14px;
+    align-self: auto;
+  }
+
+  .social-links-home {
+    display: none;
   }
 }

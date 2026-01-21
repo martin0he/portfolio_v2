@@ -64,42 +64,10 @@
   width: 100%;
 }
 
-.social-links-home {
-  display: flex;
-  gap: 16px;
-  height: 40px;
-  z-index: 101;
-  align-items: center;
-}
 
-.social-links-home .linkedin-button:hover svg path {
-  fill: #0b183d;
-}
-.social-links-home .github-button:hover svg path {
-  fill: #133f3e;
-}
-.social-links-home .resume-button:hover svg path {
-  fill: #683d10;
-}
-
-.social-links-home .github-button:hover,
-.social-links-home .resume-button:hover,
-.social-links-home .linkedin-button:hover {
-  transform: scale(1.1);
-}
-
-.social-links-home .github-button,
-.social-links-home .resume-button,
-.social-links-home .linkedin-button {
-  transition: all 0.3s ease;
-}
 
 /* Mobile Layout */
 @media (max-width: 768px) {
-  .social-links-home {
-    display: none;
-  }
-
   .home-container {
     flex-direction: column-reverse;
   }

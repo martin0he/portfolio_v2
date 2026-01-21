@@ -52,8 +52,19 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  background: #1a1a1a;
+  background: transparent;
   position: relative;
+}
+
+.card-no-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: rgba(100, 51, 54, 0.125);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--active-color);
+  font-size: 1rem;
 }
 
 .card-image-wrapper video {
@@ -121,7 +132,6 @@ p {
   .mosaic-grid {
     grid-template-columns: 1fr;
     gap: 40px;
-    padding: 20px;
   }
 
   .project-card.large,

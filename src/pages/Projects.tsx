@@ -7,7 +7,7 @@ type ProjectSize = "small" | "medium" | "large";
 type ProjectProps = {
   title: string;
   description: string;
-  image: string;
+  image?: string;
   tags: string[];
   size?: ProjectSize;
 };
@@ -21,9 +21,13 @@ const ProjectCard = ({
 }: ProjectProps) => {
   return (
     <div className={`project-card ${size}`}>
-      <div className="card-image-wrapper">
-        <video muted controls src={image} />
-      </div>
+      {image ? (
+        <div className="card-image-wrapper">
+          <video muted controls src={image} />
+        </div>
+      ) : (
+        <div className="card-no-image">Demo Unavailable</div>
+      )}
       <div className="card-content">
         <div className="tech-stack">
           {tags.map((tag) => (
@@ -44,7 +48,7 @@ const projects = [
     title: "Kappa Theta Pi National App",
     tags: ["TypeScript", "React Native", "Nativewind", "Supabase", "Expo"],
     size: "large",
-    image: "/path-to-gif1.gif",
+
     description:
       "National mobile app for cross-chapter social networking, multitenancy chapter management, finanical dues processing, roster management and all other features available in the Omega predecessor.",
   },
@@ -52,7 +56,7 @@ const projects = [
     title: "Kappa Theta Pi Ω App",
     tags: ["TypeScript", "React Native", "Nativewind", "Supabase", "Expo"],
     size: "small",
-    image: "/path-to-gif1.gif",
+
     description:
       "In-house all-in-one mobile app for recruitment, event management, attendance tracking, social networking, and chapter-wide updates.",
   },
@@ -71,7 +75,7 @@ const projects = [
       "JWT",
     ],
     size: "medium",
-    image: "/projects/cookable.webm",
+
     description:
       "Full-stack social media platform to author, self-publish, share, and discover cookbooks and recipes.",
   },
