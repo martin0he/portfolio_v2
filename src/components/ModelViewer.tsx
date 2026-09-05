@@ -1,12 +1,12 @@
-import { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
 import {
-  useGLTF,
+  AsciiRenderer,
   Center,
   OrbitControls,
   Stage,
-  AsciiRenderer,
+  useGLTF,
 } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import { Suspense } from "react";
 
 interface ModelProps {
   url: string;
@@ -45,11 +45,12 @@ export default function AsciiModelViewer({ modelUrl }: { modelUrl: string }) {
           enableZoom={false}
           enableDamping={false}
           autoRotate
-          autoRotateSpeed={8}
+          autoRotateSpeed={6}
         />
       </Canvas>
     </div>
   );
 }
 
+// Runs when this lazily-imported module is evaluated, i.e. only on Home.
 useGLTF.preload("/martin_3d_model.glb");

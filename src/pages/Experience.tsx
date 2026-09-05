@@ -5,63 +5,95 @@ type WorkExperience = {
   company: string;
   role: string;
   location: string;
-  description: string;
-  company_url: string;
+  points: string[];
+  company_url?: string;
   start_date: Date;
   end_date?: Date;
 };
 
 const workHistory: WorkExperience[] = [
   {
-    company: "DraftKings Inc.",
+    company: "DraftKings",
     role: "Software Engineering Co-op",
-    description:
-      "Contributing to the development and maintenance of web applications for DraftKings' online casino platform, focusing on frontend features and user experience enhancements.",
-    company_url: "casino.draftkings.com",
     location: "Boston, MA",
-    start_date: new Date(2025, 5),
+    company_url: "https://casino.draftkings.com",
+    points: [
+      "Building the frontend for a real-time bitcoin prediction game in SolidJS, drawing the price canvas in PixiJS and keeping it in step with a WebSocket tick feed that can't drop or reorder.",
+      "Writing the technical spec for a redesigned game info drawer shipping to two casino brands — service contracts, loading boundaries, the experiment gating it sits behind, and the conditions under which we roll it back.",
+      "Working with backend, product, and design to sequence the milestones, prototype the drawer's search flow, and move the remaining legacy components onto the current design system.",
+    ],
+    start_date: new Date(2026, 6),
+  },
+  {
+    company: "DraftKings",
+    role: "Software Engineering Co-op",
+    location: "Boston, MA",
+    company_url: "https://casino.draftkings.com",
+    points: [
+      "Built the frontend for a new live blackjack experience on the casino platform, using React and Jotai to hold game state and keep re-renders down during play.",
+      "Wrote the architecture proposal behind it, which meant working out how the existing launch path actually functioned and designing data flows that let new games launch without bespoke backend work each time.",
+      "Coordinated the release across backend, product, and QA — breaking the work into tickets, clearing blockers, and running the regression cycle before it went out.",
+    ],
+    start_date: new Date(2025, 6),
     end_date: new Date(2025, 11),
   },
   {
-    company: "Kappa Theta Pi National Chapter",
+    company: "Kappa Theta Pi National",
     role: "App Lead",
     location: "Remote",
-    description:
-      "Coordinating the development of a multi-tenant mobile application to streamline fraternity operations, recruitment, member engagement.",
-
-    company_url: "kappathetapi.org",
+    company_url: "https://kappathetapi.org",
+    points: [
+      "Leading the mobile app and admin dashboard that 30+ chapters use to run recruitment, events, and day-to-day operations.",
+      "Setting the architecture and review standards for a distributed group of chapter developers, and handling releases to the App Store and Play Store.",
+    ],
     start_date: new Date(2025, 11),
   },
   {
-    company: "Kappa Theta Pi Omega Chapter",
+    company: "Kappa Theta Pi, Omega Chapter",
     role: "Founder & Co-President",
     location: "Boston, MA",
-    description:
-      "Created the first professional co-ed technology fraternity at Northeastern University.",
-
-    company_url: "ktpneu.org",
+    company_url: "https://ktpneu.org",
+    points: [
+      "Started Northeastern's first professional technology fraternity and grew it to 65+ members.",
+      "Ran recruitment across three consecutive cycles, over which applicant interest rose 40%.",
+      "Handled operations and the budget behind 20+ workshops, hackathons, and corporate networking events.",
+    ],
     start_date: new Date(2024, 4),
     end_date: new Date(2025, 11),
+  },
+  {
+    company: "Sandbox at Northeastern",
+    role: "Software Developer",
+    location: "Boston, MA",
+    company_url: "https://www.sandboxnu.com/",
+    points: [
+      "Built the interactive schedule builder for SearchNEU, the course platform Northeastern students plan registration on.",
+      "Wrote the constraint filters behind it — campus, open seats, free days — and the layout that arranges a generated schedule onto a week.",
+    ],
+    start_date: new Date(2026, 0),
+    end_date: new Date(2026, 3),
   },
   {
     company: "Khoury College of Computer Sciences",
     role: "Frontend Developer",
     location: "Boston, MA",
-    description:
-      "Worked on redesigning and implementing Khoury's new personalized learning management platform, Odyssey.",
-
     company_url: "https://www.khouryodyssey.org/",
+    points: [
+      "Rebuilt parts of the frontend for Odyssey, Khoury's personalized learning platform.",
+    ],
     start_date: new Date(2024, 10),
     end_date: new Date(2024, 11),
   },
   {
     company: "Northeastern Electric Racing",
-    role: "Technical Lead",
-
+    role: "Software Tech Lead",
     location: "Boston, MA",
-    description:
-      "Lead a team of developers to rollout features and optimization of the project management dashboard in coordination with other leadership.",
     company_url: "https://finishlinebyner.com/",
+    points: [
+      "Led an eleven-person team on the project management dashboard that around 200 engineers use to build the team's cars.",
+      "Ran sprints and ticket review, and kept feature work lined up with the car's build milestones.",
+      "Brought new developers up to speed on the codebase — its React component patterns and Express API conventions.",
+    ],
     start_date: new Date(2024, 0),
     end_date: new Date(2024, 9),
   },
@@ -69,9 +101,10 @@ const workHistory: WorkExperience[] = [
     company: "Northeastern Electric Racing",
     role: "Product Designer",
     location: "Boston, MA",
-    description:
-      "Design features with engineers' and operations' input for our custom project managament dashboard.",
     company_url: "https://finishlinebyner.com/",
+    points: [
+      "Designed dashboard features with engineering and operations, turning the way the team already worked into interfaces they would keep using.",
+    ],
     start_date: new Date(2024, 0),
     end_date: new Date(2024, 3),
   },
@@ -79,9 +112,9 @@ const workHistory: WorkExperience[] = [
     company: "Knack",
     role: "Peer Tutor",
     location: "Remote",
-    description:
-      "Part-time peer tutor supporting fellow students in fundamental Mathematics and CS classes.",
-    company_url: "",
+    points: [
+      "Tutored other students in foundational mathematics and computer science coursework.",
+    ],
     start_date: new Date(2024, 0),
     end_date: new Date(2024, 3),
   },
@@ -89,13 +122,16 @@ const workHistory: WorkExperience[] = [
     company: "Northeastern Electric Racing",
     role: "Software Developer",
     location: "Boston, MA",
-    description:
-      "Develop a project management dashboard for the design and construction of electric race cars.",
     company_url: "https://finishlinebyner.com/",
+    points: [
+      "Built features for the project management dashboard the team designs and builds its electric race cars on.",
+    ],
     start_date: new Date(2023, 8),
     end_date: new Date(2023, 11),
   },
 ];
+
+const ONGOING = Number.MAX_SAFE_INTEGER;
 
 const formatDate = (date: Date) =>
   date.toLocaleString("en-US", {
@@ -112,59 +148,70 @@ const ExperienceCard = ({
 }: {
   workExperience: WorkExperience;
   index: number;
-}) => {
-  const bulletPoints = workExperience.description
-    .split(". ")
-    .filter((point) => point.trim().length > 0);
+}) => (
+  <li
+    className="timeline-item"
+    style={{ animationDelay: `${0.15 * (index + 1)}s` }}
+  >
+    <span className="timeline-dot" aria-hidden="true" />
+    <article className="experience-card">
+      <header className="experience-card-header">
+        <h3 className="experience-card-role">{workExperience.role}</h3>
+        <span className="experience-card-dates">
+          {getDateRange(workExperience.start_date, workExperience.end_date)}
+        </span>
+      </header>
 
-  return (
-    <div
-      className="timeline-item"
-      style={{ animationDelay: `${0.3 * (index + 1)}s` }}
-    >
-      <div className="timeline-dot"></div>
-      <div className="experience-card">
-        <div className="experience-card-header">
-          <h3 className="experience-card-title">
-            {workExperience.role} @{" "}
-            <span className="company">{workExperience.company}</span>
-          </h3>
-          <span className="experience-card-dates">
-            {getDateRange(workExperience.start_date, workExperience.end_date)}
-          </span>
-        </div>
-        <h4 className="experience-card-location">{workExperience.location}</h4>
-        <div className="bullet-points">
-          {bulletPoints.map((point, i) => (
-            <h3 key={i} className="bullet-point">
-              <span className="bullet-point-symbol">➡</span> {point}
-            </h3>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
+      <p className="experience-card-meta">
+        {workExperience.company_url ? (
+          <a
+            className="company"
+            href={workExperience.company_url}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {workExperience.company}
+          </a>
+        ) : (
+          <span className="company">{workExperience.company}</span>
+        )}
+        <span className="meta-divider" aria-hidden="true" />
+        <span className="experience-card-location">
+          {workExperience.location}
+        </span>
+      </p>
+
+      <ul className="bullet-points">
+        {workExperience.points.map((point) => (
+          <li key={point} className="bullet-point">
+            {point}
+          </li>
+        ))}
+      </ul>
+    </article>
+  </li>
+);
 
 const Experience = () => {
-  // sort work experiences by end_date descending if end_date is undefined, treat it as the most recent
-  const sortedWorkHistory = workHistory.sort((a, b) => {
-    const aEnd = a.end_date ? a.end_date.getTime() : Infinity;
-    const bEnd = b.end_date ? b.end_date.getTime() : Infinity;
-    return bEnd - aEnd;
+  // Most recent first; ongoing roles sort to the top, newest start first.
+  const sortedWorkHistory = [...workHistory].sort((a, b) => {
+    const aEnd = a.end_date ? a.end_date.getTime() : ONGOING;
+    const bEnd = b.end_date ? b.end_date.getTime() : ONGOING;
+    if (aEnd !== bEnd) return bEnd - aEnd;
+    return b.start_date.getTime() - a.start_date.getTime();
   });
 
   return (
     <PageWrapper>
-      <div className="timeline-container">
+      <ul className="timeline-container">
         {sortedWorkHistory.map((workExperience, index) => (
           <ExperienceCard
             workExperience={workExperience}
-            key={index}
+            key={`${workExperience.company}-${workExperience.role}-${workExperience.start_date.getTime()}`}
             index={index}
           />
         ))}
-      </div>
+      </ul>
     </PageWrapper>
   );
 };

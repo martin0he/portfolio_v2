@@ -1,54 +1,21 @@
-.intro {
-  line-height: 1.2;
-  font-size: 1.2rem;
+.about {
+  width: 100%;
+  max-width: 62ch;
+  margin: 0 auto;
+  padding: 8px 0 40px;
+  color: #55514f;
+}
+
+/* Shared entrance — every block rises into place on a stagger */
+.reveal {
   opacity: 0;
-}
-
-/* Layout for the 3 Columns */
-.columns-wrapper {
-  display: flex;
-  gap: 42px;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.column {
-  flex: 1;
-  line-height: 1.2;
-  font-size: 1.2rem;
-  gap: 12px;
-  display: flex;
-  flex-direction: column;
-  opacity: 0; /* Hidden before animation */
-}
-
-/* Animation Definitions */
-.fade-up {
-  animation: slideUp 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: 0.6s;
-}
-
-.fade-down {
-  animation: slideDown 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: 0.9s;
-}
-
-.intro-anim {
-  animation: slideUp 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: 0.3s;
-}
-
-/* Keyframes */
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
+  animation: slideUp 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(32px);
   }
   to {
     opacity: 1;
@@ -56,33 +23,174 @@
   }
 }
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Opening */
+.about-kicker {
+  margin: 0 0 18px;
+  font-family: sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(138, 57, 62, 0.7);
 }
 
-/* Responsive adjustment */
-@media (max-width: 768px) {
-  .columns-wrapper {
-    flex-direction: column;
-  }
+.about-headline {
+  margin: 0;
+  font-size: clamp(2rem, 4.6vw, 3rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: var(--primary-color);
+  text-wrap: balance;
 }
 
-/* Pics */
-.about-img {
+.about-standfirst {
+  margin: 22px 0 0;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #6b6664;
+}
+
+.about-rule {
   width: 100%;
-  opacity: 0.7;
-  border: 1px dashed #8a393e;
-  border-radius: 6px;
-  transition: opacity 0.3s ease-in-out;
+  height: 0;
+  margin: 44px 0;
+  border: none;
+  border-top: 1px solid rgba(138, 57, 62, 0.22);
 }
 
-.about-img:hover {
-  opacity: 1;
+/* Body */
+.about-para {
+  margin: 0 0 40px;
+  font-size: 1.08rem;
+  line-height: 1.75;
+}
+
+.about-para em {
+  font-style: italic;
+  color: var(--primary-color);
+}
+
+/* Photographs.
+   The source images are polaroids on white paper; multiply drops the paper
+   out against the cream page so only the print and its caption remain. */
+.about-figure {
+  margin: 0 0 40px;
+  padding: 18px 22px;
+  display: flex;
+  /* Paints the page colour inside the figure's own stacking context, which is
+     what the image's multiply blend has to resolve against. */
+  background-color: var(--bg-color);
+}
+
+.about-figure.figure-right {
+  justify-content: flex-end;
+}
+
+.about-figure.figure-left {
+  justify-content: flex-start;
+}
+
+/* Only let the photographs hang into the margin once there is margin to hang in */
+@media (min-width: 1100px) {
+  .about-figure.figure-right {
+    margin-right: -8%;
+  }
+
+  .about-figure.figure-left {
+    margin-left: -8%;
+  }
+}
+
+.about-img {
+  width: 300px;
+  max-width: 100%;
+  display: block;
+  mix-blend-mode: multiply;
+  filter: brightness(1.04) saturate(0.94);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.6s ease;
+}
+
+.about-figure.figure-right .about-img {
+  transform: rotate(1.6deg);
+}
+
+.about-figure.figure-left .about-img {
+  transform: rotate(-1.8deg);
+}
+
+.about-figure:hover .about-img {
+  transform: rotate(0deg) scale(1.02);
+  filter: brightness(1) saturate(1);
+}
+
+/* Closing details */
+.about-facts {
+  margin: 8px 0 0;
+  padding-top: 32px;
+  border-top: 1px solid rgba(138, 57, 62, 0.22);
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
+
+.about-fact {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 16px;
+  align-items: baseline;
+}
+
+.about-fact dt {
+  font-family: sans-serif;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(138, 57, 62, 0.7);
+}
+
+.about-fact dd {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.about-signoff {
+  margin: 44px 0 0;
+  font-size: 1rem;
+  font-style: italic;
+  color: rgba(138, 57, 62, 0.8);
+}
+
+@media (max-width: 768px) {
+  .about {
+    max-width: none;
+  }
+
+  .about-figure.figure-right,
+  .about-figure.figure-left {
+    margin-left: 0;
+    margin-right: 0;
+    justify-content: center;
+  }
+
+  .about-standfirst {
+    font-size: 1.05rem;
+  }
+
+  .about-fact {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation-duration: 0.01ms;
+    animation-delay: 0ms !important;
+    opacity: 1;
+    transform: none;
+  }
 }

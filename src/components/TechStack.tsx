@@ -1,19 +1,19 @@
 import "./TechStack.css";
 
 const techStack = {
-  React: "react.png",
-  TypeScript: "tsx.png",
+  React: "react.webp",
+  TypeScript: "tsx.webp",
   Express: "node.svg",
-  "C++": "cpp.png",
-  Python: "py.png",
-  CSS: "css.png",
+  "C++": "cpp.webp",
+  Python: "py.webp",
+  CSS: "css.webp",
   Datadog: "dd.webp",
-  Docker: "docker.png",
+  Docker: "docker.webp",
   "React Native": "expo.svg",
-  "Next.js": "next.png",
+  "Next.js": "next.webp",
   TailwindCSS: "tailwind.svg",
   Supabase: "supabase.webp",
-  "New Relic": "newrelic.png",
+  "New Relic": "newrelic.webp",
 };
 
 const TechStack = () => {
